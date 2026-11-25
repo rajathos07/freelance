@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Anton", "Impact", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-vynex-cream: #f5ebe4;
+  --color-vynex-lavender: #efe6f7;
+  --color-vynex-purple: #7b57f5;
+  --color-vynex-violet: #9333ea;
+  --color-vynex-blue: #3b52f6;
+  --color-vynex-cyan: #38bdf8;
+  --color-vynex-emerald: #10b981;
+  --color-vynex-dark: #0a0b0e;
+  --color-vynex-black: #050608;
+}
+
+/* Lenis baseline styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background-color: #f3e8f8;
+  color: #0c0d11;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Kinetic Typography */
+.hero-title-layer {
+  font-family: "Anton", "Impact", sans-serif !important;
+  text-transform: uppercase;
+  line-height: 0.90;
+  letter-spacing: -0.01em;
+  word-break: break-word;
+}
+
+/* Grids */
+.valentin-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(123, 87, 245, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(123, 87, 245, 0.12) 1px, transparent 1px);
+}
+@media (min-width: 768px) {
+  .valentin-grid {
+    background-size: 80px 80px;
+  }
+}
+
+.dark-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+@media (min-width: 768px) {
+  .dark-grid {
+    background-size: 60px 60px;
+  }
+}
+
+/* Blurred ambient background text */
+.bg-blurred-text {
+  font-family: "Anton", "Impact", sans-serif !important;
+  filter: blur(10px);
+  opacity: 0.15;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(1.02);
+  transition: filter 0.3s ease;
+}
+@media (min-width: 768px) {
+  .bg-blurred-text {
+    filter: blur(14px);
+    opacity: 0.18;
+    transform: scale(1.05);
+  }
+}
+
+/* 360 spinning badge */
+.spinning-badge {
+  animation: spin 14s linear infinite;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Sticker badge */
+.sticker-badge {
+  font-family: "Space Grotesk", sans-serif;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.sticker-badge:hover {
+  transform: scale(1.12) translateY(-4px);
+  box-shadow: 0 16px 32px -6px rgba(123, 87, 245, 0.3);
+}
+
+/* Card glow */
+.card-glow {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-glow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px -10px rgba(56, 189, 248, 0.3);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+/* Terminal window */
+.code-window {
+  background: #090a0f;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Mouse follower badge in scene 1 */
+#badge-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 45;
+  transform: translate(-50%, -50%);
+  will-change: transform, left, top;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+#cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 10000;
+  mix-blend-mode: difference;
+}
+
+@keyframes borderPulse {
+  0%, 100% { border-color: rgba(123, 87, 245, 0.3); }
+  50% { border-color: rgba(123, 87, 245, 0.9); box-shadow: 0 0 25px rgba(123, 87, 245, 0.15); }
+}
+.pulse-card {
+  animation: borderPulse 4s ease-in-out infinite;
+}
+
+.radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(123, 87, 245, 0.22), transparent 70%);
+}
